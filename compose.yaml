@@ -13,6 +13,7 @@ services:
     volumes:
       - app-data:/archivesspace/data
       - app-logs:/archivesspace/logs
+      - ./app/local:/archivesspace/plugins/local
     ports:
       - "8080:8080"
       - "8081:8081"
