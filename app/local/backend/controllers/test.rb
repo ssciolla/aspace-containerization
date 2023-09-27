@@ -10,13 +10,19 @@ class ArchivesSpaceService < Sinatra::Base
     .permissions([])
     .returns([200, "test object"]) do
 
+      logger = Logger.new($stdout)
+
       test_hash = {
         test_date: Date,
         test_number: 2,
         test_string: "hello"
       }
 
-      logger = Logger.new($stdout)
+      logger.info "JSON.generate"
+      logger.info JSON.generate test_hash
+      logger.info "to_json"
+      logger.info test_hash.to_json
+      logger.info "method(:to_json)"
       logger.info test_hash.method(:to_json)
 
       json_response(test_hash)

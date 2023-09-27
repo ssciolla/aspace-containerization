@@ -54,7 +54,7 @@ if oidc_issuer && oidc_client_id && oidc_client_secret && oidc_end_session_endpo
   ]
 
   puts "OIDC settings were found; adding aspace-oauth plugin."
-  AppConfig[:plugins] << "aspace-oauth"
+  AppConfig[:plugins] = ["aspace-oauth"] + AppConfig[:plugins]
 end
 
 AppConfig[:plugins] = AppConfig[:plugins] + ENV.fetch("PLUGINS", "").split(",").map { |x| x.strip }
